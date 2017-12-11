@@ -16,6 +16,7 @@
     <p style="text-align: center; font-family: Century Gothic, sans-serif;">
       There are <b>45</b> counties in <b>Central Illinois</b>. This is a large geographical region with a varied, distinct culture and history. So, we can learn more about this culture by analyzing its historical landmarks. Below is a map documenting the <b>463</b> properties in Central Illinois listed in the <b>National Register of Historic Places</b> along with some basic information. Note that there is a limit as to how much data Google Maps can process at once, so please use the buttons underneath the map to view in-depth datasets. (Data is from 06/01/2007)
     </p>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <div id="map"></div>
     <script>
     var map
@@ -69,6 +70,24 @@
         console.log('loading geojson')
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
       }
+      $(document).ready(function ()
+      {
+      $("#1").on('click', function ()
+      {
+	       geojson_url = 'central_illinois.geojson'
+         map.data.loadGeoJson(geojson_url, null, loadMarkers)
+	    });
+	    $("#2").on('click', function ()
+      {
+        geojson_url = 'western_central_illinois.geojson'
+        map.data.loadGeoJson(geojson_url, null, loadMarkers)
+      });
+      $("#3").on('click', function ()
+      {
+        geojson_url = 'eastern_central_illinois.geojson'
+        map.data.loadGeoJson(geojson_url, null, loadMarkers)
+	    });
+    });
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ5Kx-fbPez0aSmRcIWi0p4CGtGzteQoo&callback=initMap">
