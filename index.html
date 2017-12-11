@@ -70,7 +70,7 @@
 
         map_document = document.getElementById('map')
         map = new google.maps.Map(map_document,map_options);
-        geojson_url = 'datahist.geojson'
+        geojson_url = 'central_illinois.geojson'
         console.log('loading geojson')
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
       }
