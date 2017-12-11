@@ -79,18 +79,24 @@
       {
       $("#1").on('click', function ()
       {
+        markersArray.push(marker);
+        google.maps.event.addListener(marker,"click",function(){});
         clearOverlays()
         geojson_url = 'central_illinois.geojson'
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
 	    });
 	    $("#2").on('click', function ()
       {
+        markersArray.push(marker);
+        google.maps.event.addListener(marker,"click",function(){});
         clearOverlays()
         geojson_url = 'western_central_illinois.geojson'
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
       });
       $("#3").on('click', function ()
       {
+        markersArray.push(marker);
+        google.maps.event.addListener(marker,"click",function(){});
         clearOverlays()
         geojson_url = 'eastern_central_illinois.geojson'
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
