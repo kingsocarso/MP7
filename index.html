@@ -26,7 +26,7 @@
         // expects [latitude, longitude]
         var latitude = feature.getGeometry().get().lat()
         var longitude = feature.getGeometry().get().lng()
-        var titleText = feature.getProperty('title')
+        var titleText = feature.getProperty('Name')
         var descriptionText = feature.getProperty('description')
 
         var marker = new google.maps.Marker({
