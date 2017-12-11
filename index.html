@@ -21,13 +21,12 @@
     <script>
     var map
     var markers = []
-    var markersArray = []
 
     function clearOverlays() {
-      for (var i = 0; i < markersArray.length; i++ ) {
-        markersArray[i].setMap(null);
+      for (var i = 0; i < markers.length; i++ ) {
+        markers[i].setMap(null);
       }
-      markersArray.length = 0;
+      markers.length = 0;
     }
     function loadMarkers() {
       console.log('creating markers')
@@ -79,24 +78,18 @@
       {
       $("#1").on('click', function ()
       {
-        markersArray.push(marker);
-        google.maps.event.addListener(marker,"click",function(){});
         clearOverlays()
         geojson_url = 'central_illinois.geojson'
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
 	    });
 	    $("#2").on('click', function ()
       {
-        markersArray.push(marker);
-        google.maps.event.addListener(marker,"click",function(){});
         clearOverlays()
         geojson_url = 'western_central_illinois.geojson'
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
       });
       $("#3").on('click', function ()
       {
-        markersArray.push(marker);
-        google.maps.event.addListener(marker,"click",function(){});
         clearOverlays()
         geojson_url = 'eastern_central_illinois.geojson'
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
