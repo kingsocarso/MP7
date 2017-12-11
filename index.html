@@ -52,22 +52,14 @@
       function initMap() {
         var centIllinois = {lat: 40.482222, lng: -88.979722};
         map_options = {
-          zoom: 10,
+          zoom: 9,
           mapTypeId: google.maps.MapTypeId.HYBRID,
           center: centIllinois
         }
 
         map_document = document.getElementById('map')
         map = new google.maps.Map(map_document,map_options);
-        geojson_url = 'https://raw.githubusercontent.com/gizm00/blog_code/master/appendto/python_maps/collection.geojson'
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: centIllinois
-        });
-        var marker = new google.maps.Marker({
-          position: centIllinois,
-          map: map
-        });
+        geojson_url = 'NRHP_Midwest_Region.geojson'
       }
     </script>
     <script async defer
