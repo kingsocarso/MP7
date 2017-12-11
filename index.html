@@ -21,9 +21,14 @@
     <script>
     var map
     var markers = []
+    var markersArray = []
 
-    // after the geojson is loaded, iterate through the map data to create markers
-    // and add the pop up (info) windows
+    function clearOverlays() {
+      for (var i = 0; i < markersArray.length; i++ ) {
+        markersArray[i].setMap(null);
+      }
+      markersArray.length = 0;
+    }
     function loadMarkers() {
       console.log('creating markers')
       var infoWindow = new google.maps.InfoWindow()
@@ -74,16 +79,19 @@
       {
       $("#1").on('click', function ()
       {
-	       geojson_url = 'central_illinois.geojson'
-         map.data.loadGeoJson(geojson_url, null, loadMarkers)
+        clearOverlays()
+        geojson_url = 'central_illinois.geojson'
+        map.data.loadGeoJson(geojson_url, null, loadMarkers)
 	    });
 	    $("#2").on('click', function ()
       {
+        clearOverlays()
         geojson_url = 'western_central_illinois.geojson'
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
       });
       $("#3").on('click', function ()
       {
+        clearOverlays()
         geojson_url = 'eastern_central_illinois.geojson'
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
 	    });
