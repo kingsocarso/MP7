@@ -33,9 +33,9 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <div id="map"></div>
     <div id="boxed">
-      <button id="1" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display all sites in Central Illinois</button>
-      <button id="2" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Western Central Illinois</button>
-      <button id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Eastern Central Illinois</button>
+      <button id="1" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;" onclick="clearOverlays()">Display all sites in Central Illinois</button>
+      <button id="2" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;" onclick="clearOverlays()" >Display sites in Western Central Illinois</button>
+      <button id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;" onclick="clearOverlays()" >Display sites in Eastern Central Illinois</button>
     </div>
     <script>
     var map
@@ -94,25 +94,6 @@
         console.log('loading geojson')
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
       }
-      $(document).ready(function ()
-      {
-      $("#1").on('click', function ()
-      {
-        clearOverlays()
-        geojson_url = 'central_illinois.geojson'
-        map.data.loadGeoJson(geojson_url, null, loadMarkers)
-	    });
-	    $("#2").on('click', function ()
-      {
-        clearOverlays()
-      });
-      $("#3").on('click', function ()
-      {
-        clearOverlays()
-        geojson_url = 'eastern_central_illinois.geojson'
-        map.data.loadGeoJson(geojson_url, null, loadMarkers)
-	    });
-    });
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ5Kx-fbPez0aSmRcIWi0p4CGtGzteQoo&callback=initMap">
