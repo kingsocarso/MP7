@@ -84,10 +84,17 @@
         console.log('loading geojson')
         map.data.loadGeoJson(geojson_url, null, loadMarkers)
       }
+	function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+
       function clearOverlays() {
-        console.log('clearing markers')
-        for (var i = 0; i < markers.length; i++ ) {
-          markers[i].setMap(null);
+        
+        setMapOnAll(null);
+      }
+
         }
         markers = [];
       }
