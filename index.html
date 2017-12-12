@@ -33,9 +33,9 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <div id="map"></div>
     <div id="boxed">
-      <button onclick="markersArray.push(marker); clearOverlays();" id="1" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;" >Display all sites in Central Illinois</button>
-      <button onclick="markersArray.push(marker); clearOverlays();" id="2" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Western Central Illinois</button>
-      <button onclick="markersArray.push(marker); clearOverlays();" id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Eastern Central Illinois</button>
+      <button onclick="markers.push(marker); clearOverlays();" id="1" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;" >Display all sites in Central Illinois</button>
+      <button onclick="markers.push(marker); clearOverlays();" id="2" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Western Central Illinois</button>
+      <button onclick="markers.push(marker); clearOverlays();" id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Eastern Central Illinois</button>
     </div>
     <script>
     var map
@@ -91,7 +91,7 @@
       }
 
       function clearOverlays() {
-        
+
         setMapOnAll(null);
       }
 
