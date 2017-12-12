@@ -23,6 +23,7 @@
 	        background-color: #80f0f2
 	    }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script>
     var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
@@ -59,7 +60,6 @@ var chart = new Chart(ctx, {
       <button onclick="clearOverlays(); url = 'eastern_central_illinois.geojson'; initMap();" id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Eastern Central Illinois</button>
     </div>
     <canvas id="myChart"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script>
     var map
     var markers = []
