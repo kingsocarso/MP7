@@ -23,6 +23,80 @@
 	        background-color: #80f0f2
 	    }
     </style>
+    <script>
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer", {
+	       animationEnabled: true,
+
+	       title:{
+		          text:"Number of NRHP-listed Sites by County"
+	       },
+	            axisX:{
+		             interval: 1
+              },
+              axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Number of Sites"
+	},
+	data: [{
+		type: "bar",
+		name: "companies",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: [
+			{ y: 64, label: "Sangamon" },
+			{ y: 58, label: "Champaign" },
+			{ y: 43, label: "Fulton" },
+			{ y: 34, label: "Peoria" },
+			{ y: 33, label: "McLean" },
+			{ y: 27, label: "Adams" },
+			{ y: 21, label: "Coles" },
+			{ y: 19, label: "Jersey" },
+			{ y: 17, label: "Tazewell" },
+			{ y: 14, label: "Pike" },
+			{ y: 13, label: "Livingston" },
+			{ y: 13, label: "Montgomery" },
+			{ y: 13, label: "Vermilion" },
+			{ y: 12, label: "Greene" },
+			{ y: 12, label: "Hancock" },
+			{ y: 12, label: "Logan" },
+			{ y: 10, label: "Macon" },
+			{ y: 10, label: "Warren" }
+      { y: 9, label: "Clark" }
+      { y: 9, label: "Morgan" }
+      { y: 8, label: "Edgar" }
+      { y: 8, label: "Macoupin" }
+      { y: 8, label: "McDonough" }
+      { y: 8, label: "Woodford" }
+      { y: 7, label: "Calhoun" }
+      { y: 7, label: "Knox" }
+      { y: 6, label: "Christian" }
+      { y: 6, label: "Piatt" }
+      { y: 6, label: "Shelby" }
+      { y: 5, label: "Ford" }
+      { y: 5, label: "Iroquois" }
+      { y: 5, label: "Menard" }
+      { y: 4, label: "Henderson" }
+      { y: 4, label: "Mason" }
+      { y: 3, label: "Cumberland" }
+      { y: 2, label: "Brown" }
+      { y: 2, label: "Cass" }
+      { y: 2, label: "DeWitt" }
+      { y: 2, label: "Douglas" }
+      { y: 2, label: "Marshall" }
+      { y: 2, label: "Schuyler" }
+      { y: 2, label: "Scott" }
+      { y: 1, label: "Edwards" }
+      { y: 1, label: "Moultrie" }
+      { y: 1, label: "Stark" }
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
   </head>
   <body>
     <h2 style="text-align: center; font-family: Verdana, sans-serif; font-size: 46px;">MP7:</h2>
@@ -37,6 +111,7 @@
       <button onclick="clearOverlays(); url = 'western_central_illinois.geojson'; initMap();" id="2" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Western Central Illinois</button>
       <button onclick="clearOverlays(); url = 'eastern_central_illinois.geojson'; initMap();" id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Eastern Central Illinois</button>
     </div>
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
     <script>
     var map
     var markers = []
@@ -47,8 +122,6 @@
       var infoWindow = new google.maps.InfoWindow()
       map.data.forEach(function(feature) {
 
-        // geojson format is [longitude, latitude] but google maps marker position attribute
-        // expects [latitude, longitude]
         var latitude = feature.getGeometry().get().lat()
         var longitude = feature.getGeometry().get().lng()
         var titleText = feature.getProperty('Name')
