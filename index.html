@@ -33,14 +33,14 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <div id="map"></div>
     <div id="boxed">
-      <button onclick="markers.push(null); clearOverlays();" id="1" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;" >Display all sites in Central Illinois</button>
-      <button onclick="markers.push(null); clearOverlays();" id="2" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Western Central Illinois</button>
-      <button onclick="markers.push(null); clearOverlays();" id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Eastern Central Illinois</button>
+      <button onclick="clearOverlays(); url = 'central_illinois.geojson'; initMap();" id="1" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;" >Display all sites in Central Illinois</button>
+      <button onclick="clearOverlays(); url = 'western_central_illinois.geojson'; initMap();" id="2" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Western Central Illinois</button>
+      <button onclick="clearOverlays(); url = 'eastern_central_illinois.geojson'; initMap();" id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Eastern Central Illinois</button>
     </div>
     <script>
     var map
     var markers = []
-
+    var url = 'central_illinois.geojson'
 
     function loadMarkers() {
       console.log('creating markers')
@@ -80,9 +80,8 @@
 
         map_document = document.getElementById('map')
         map = new google.maps.Map(map_document,map_options);
-        geojson_url = 'central_illinois.geojson'
         console.log('loading geojson')
-        map.data.loadGeoJson(geojson_url, null, loadMarkers)
+        map.data.loadGeoJson(url, null, loadMarkers)
       }
 	function setMapOnAll(map) {
         for (var i = 0; i < markers.length; i++) {
