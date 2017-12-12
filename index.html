@@ -24,77 +24,25 @@
 	    }
     </style>
     <script>
-    window.onload = function () {
-      var chart = new CanvasJS.Chart("chartContainer", {
-	       animationEnabled: true,
+    var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
 
-	       title:{
-		          text:"Number of NRHP-listed Sites by County"
-	       },
-	            axisX:{
-		             interval: 1
-              },
-              axisY2:{
-		interlacedColor: "rgba(1,77,101,.2)",
-		gridColor: "rgba(1,77,101,.1)",
-		title: "Number of Sites"
-	},
-	data: [{
-		type: "bar",
-		name: "companies",
-		axisYType: "secondary",
-		color: "#014D65",
-		dataPoints: [
-			{ y: 64, label: "Sangamon" },
-			{ y: 58, label: "Champaign" },
-			{ y: 43, label: "Fulton" },
-			{ y: 34, label: "Peoria" },
-			{ y: 33, label: "McLean" },
-			{ y: 27, label: "Adams" },
-			{ y: 21, label: "Coles" },
-			{ y: 19, label: "Jersey" },
-			{ y: 17, label: "Tazewell" },
-			{ y: 14, label: "Pike" },
-			{ y: 13, label: "Livingston" },
-			{ y: 13, label: "Montgomery" },
-			{ y: 13, label: "Vermilion" },
-			{ y: 12, label: "Greene" },
-			{ y: 12, label: "Hancock" },
-			{ y: 12, label: "Logan" },
-			{ y: 10, label: "Macon" },
-			{ y: 10, label: "Warren" }
-      { y: 9, label: "Clark" }
-      { y: 9, label: "Morgan" }
-      { y: 8, label: "Edgar" }
-      { y: 8, label: "Macoupin" }
-      { y: 8, label: "McDonough" }
-      { y: 8, label: "Woodford" }
-      { y: 7, label: "Calhoun" }
-      { y: 7, label: "Knox" }
-      { y: 6, label: "Christian" }
-      { y: 6, label: "Piatt" }
-      { y: 6, label: "Shelby" }
-      { y: 5, label: "Ford" }
-      { y: 5, label: "Iroquois" }
-      { y: 5, label: "Menard" }
-      { y: 4, label: "Henderson" }
-      { y: 4, label: "Mason" }
-      { y: 3, label: "Cumberland" }
-      { y: 2, label: "Brown" }
-      { y: 2, label: "Cass" }
-      { y: 2, label: "DeWitt" }
-      { y: 2, label: "Douglas" }
-      { y: 2, label: "Marshall" }
-      { y: 2, label: "Schuyler" }
-      { y: 2, label: "Scott" }
-      { y: 1, label: "Edwards" }
-      { y: 1, label: "Moultrie" }
-      { y: 1, label: "Stark" }
-		]
-	}]
+    // The data for our dataset
+    data: {
+        labels: [{ y: 64, label: "Sangamon", "Champaign", "Fulton", "Peoria", "McLean", "Adams", "Coles", "Jersey", "Tazewell", "Pike", "Livingston", "Montgomery", "Vermilion", "Greene", "Hancock", "Logan", "Macon", "Warren", "Clark", "Morgan", "Edgar", "Macoupin", "McDonough" , "Woodford", "Calhoun", "Knox", "Christian", "Piatt", "Shelby", "Ford", "Iroquois", "Menard", "Henderson", "Mason", "Cumberland", "Brown", "Cass", "DeWitt", "Douglas", "Marshall", "Schuyler", "Scott", "Edwards", "Moultrie", "Stark"],
+        datasets: [{
+            label: "Number of NRHP-listed Sites by County",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [64, 58, 43, 34, 33, 27, 21, 19, 17, 14, 13, 13, 13, 12, 12, 12, 10, 10, 9, 9, 8, 8, 8, 8, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 3, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
 });
-chart.render();
-
 }
 </script>
   </head>
@@ -111,8 +59,8 @@ chart.render();
       <button onclick="clearOverlays(); url = 'western_central_illinois.geojson'; initMap();" id="2" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Western Central Illinois</button>
       <button onclick="clearOverlays(); url = 'eastern_central_illinois.geojson'; initMap();" id="3" style="padding:10px; cursor:pointer; margin-left: auto; margin-right: auto; background-color: lightgrey; border: 2px solid #070707;margin: 5px 5px 5px 5px ;">Display sites in Eastern Central Illinois</button>
     </div>
-    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <canvas id="myChart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script>
     var map
     var markers = []
